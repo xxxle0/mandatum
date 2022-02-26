@@ -1,3 +1,6 @@
+
+#![allow(unused)]
+
 use clap::Parser;
 
 // manda config view -> show config trong file config
@@ -6,13 +9,20 @@ use clap::Parser;
 // manda ssh create -> add ssh key
 
 #[derive(Parser, Debug)]
-struct Args {
+struct Cli {
     entity: String,
     command: String,
 }
 // Create a struct command
 // Create README command
 // Read/Write config file
+enum Command { 
+    View,
+    Add,
+}
 fn main() {
-    let args = Args::parse();
+    let args = Cli::parse();
+    println!("entity: {}", &args.entity);
+    println!("command: {}", &args.command);
+
 }
